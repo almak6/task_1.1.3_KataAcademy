@@ -24,12 +24,12 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
         try (Statement statement = connection.createStatement()) {
             statement.execute(
-                    "CREATE TABLE IF NOT EXISTS user" + //проверка на наличие такой таблицы
+                    "CREATE TABLE IF NOT EXISTS user" +
                             "(" +
-                            "id BIGINT PRIMARY KEY AUTO_INCREMENT," + //эквивал long, первичный уникальный ключ, инкрементирующееся
-                            "name VARCHAR(30) NOT NULL," + //не может быть null
-                            "last_name VARCHAR(30) NOT NULL," + //не может быть null
-                            "age TINYINT NOT NULL" + //-128 127 - эквивал byte, не может быть null
+                            "id BIGINT PRIMARY KEY AUTO_INCREMENT," +
+                            "name VARCHAR(30) NOT NULL," +
+                            "last_name VARCHAR(30) NOT NULL," +
+                            "age TINYINT NOT NULL" +
                             ");");
         } catch (SQLException ex) {
             ex.getStackTrace();
