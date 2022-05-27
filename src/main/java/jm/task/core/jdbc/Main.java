@@ -3,22 +3,21 @@ package jm.task.core.jdbc;
 import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
-
-
+import jm.task.core.jdbc.service.UserServiceImpl;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        UserDao userDao = new UserDaoHibernateImpl();
+        UserServiceImpl userServiceImpl = new UserServiceImpl();
 
-        userDao.createUsersTable();
-        userDao.saveUser("Ivan", "Fadew", (byte) 35);
-        userDao.saveUser("Alex", "Max", (byte) 30);
-        userDao.saveUser("Nicolas", "Sarkozy", (byte) 60);
-        userDao.saveUser("Karina", "Kambarova", (byte) 28);
-        userDao.getAllUsers().forEach(System.out::println);
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
+        userServiceImpl.createUsersTable();
+        userServiceImpl.saveUser("Ivan", "Fadew", (byte) 35);
+        userServiceImpl.saveUser("Alex", "Max", (byte) 30);
+        userServiceImpl.saveUser("Nicolas", "Sarkozy", (byte) 60);
+        userServiceImpl.saveUser("Karina", "Kambarova", (byte) 28);
+        userServiceImpl.getAllUsers().forEach(System.out::println);
+        userServiceImpl.cleanUsersTable();
+        userServiceImpl.dropUsersTable();
     }
 }
